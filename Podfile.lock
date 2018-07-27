@@ -1,0 +1,52 @@
+PODS:
+  - Alamofire (4.7.2)
+  - Cuckoo (0.11.3)
+  - Pulley (2.4.0)
+  - RxBlocking (4.1.2):
+    - RxSwift (~> 4.0)
+  - RxCocoa (4.1.2):
+    - RxSwift (~> 4.0)
+  - RxSwift (4.1.2)
+  - RxTest (4.1.2):
+    - RxSwift (~> 4.0)
+  - Swinject (2.4.0)
+  - SwinjectStoryboard (1.2.1):
+    - Swinject (~> 2.3)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.7)
+  - Cuckoo
+  - Pulley
+  - RxBlocking (~> 4.0)
+  - RxCocoa (~> 4.0)
+  - RxSwift (~> 4.0)
+  - RxTest (~> 4.0)
+  - Swinject
+  - SwinjectStoryboard
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Alamofire
+    - Cuckoo
+    - Pulley
+    - RxBlocking
+    - RxCocoa
+    - RxSwift
+    - RxTest
+    - Swinject
+    - SwinjectStoryboard
+
+SPEC CHECKSUMS:
+  Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
+  Cuckoo: 97522dd7ac6f18adba6022bdc74aa69e82ca691a
+  Pulley: 604066ea5d24339a8701b0167a2c8131a589e705
+  RxBlocking: f6054985901412fc8c02daa84e92d4ba68c61389
+  RxCocoa: d88ba0f1f6abf040011a9eb4b539324fc426843a
+  RxSwift: e49536837d9901277638493ea537394d4b55f570
+  RxTest: e634f15fd2c2cd0e0120132ef7a4f7be69ad0393
+  Swinject: a1364b0f66c2736bb03c1c7cab54809e16df25da
+  SwinjectStoryboard: de60d1d30fbf442fe90fc5c31d9fff89cf3ef64f
+
+PODFILE CHECKSUM: f996b09f5eafd35afc333881a1ded1294a8a24d2
+
+COCOAPODS: 1.5.0
