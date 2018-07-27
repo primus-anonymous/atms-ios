@@ -14,9 +14,7 @@ class AtmsRepo: AtmsProtocol {
             let request = Alamofire.request("https://lz4.overpass-api.de/api/interpreter", parameters: parameters)
                 .validate()
                 .responseJSON(completionHandler: { response in
-                    
-                    print(response)
-                    
+                                        
                     if let json = response.result.value {
                         
                         if let dict = (json as? [String: Any])?["elements"] as? [[String: Any]] {
@@ -25,7 +23,7 @@ class AtmsRepo: AtmsProtocol {
                             single(.error(NSError()))
                         }
                     } else {
-                        single(.error(NSError()))
+                        single(.error(response.error!))
                     }
                     
                 })

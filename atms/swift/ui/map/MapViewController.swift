@@ -12,6 +12,8 @@ class MapViewController: UIViewController {
     
     @IBOutlet weak var progress: UIActivityIndicatorView!
     
+    @IBOutlet weak var zoomFurtherLabel: UILabel!
+    
     let disposeBag = DisposeBag()
     
     var viewModel: MainViewModel!
@@ -21,6 +23,8 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        zoomFurtherLabel.text = "zoom_further".localized
+
         mapView.delegate = self
         mapView.layoutMargins = UIEdgeInsets(top: 64, left: 0, bottom: 0, right: 0)
         
@@ -161,6 +165,11 @@ extension MapViewController : MKMapViewDelegate {
             viewModel.select(atmNode: atmAnnotation.atmNode)
         }
         
+        if let clusterAnnotation = view.annotation as? MKClusterAnnotation {
+            
+            mapView.showAnnotations(clusterAnnotation.memberAnnotations, animated: true)
+        }
+        
     }
     
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
@@ -174,6 +183,8 @@ extension MapViewController : MKMapViewDelegate {
             
         }
     }
+    
+    
 }
 
 

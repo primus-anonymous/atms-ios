@@ -22,6 +22,10 @@ class DrawerViewController: UIViewController {
     
     @IBOutlet weak var distance: UILabel!
     
+    @IBOutlet weak var btnNavigate: UIButton!
+    
+    @IBOutlet weak var btnCancel: UIButton!
+    
     @IBAction func doneTapped(_ sender: Any) {
         viewModel.clearSelectedAtm()
     }
@@ -32,36 +36,26 @@ class DrawerViewController: UIViewController {
         
         alert.addAction(UIAlertAction(title: "nav_walk".localized, style: .default, handler: { [unowned self] (action) in
             
-            
             let options = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeWalking]
+            
+            let placemark = MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: self.atmNode.lat, longitude: self.atmNode.lon), addressDictionary: nil)
+            let mapitem = MKMapItem(placemark: placemark)
+            
+            mapitem.openInMaps(launchOptions: options)
+            
         }))
         
         alert.addAction(UIAlertAction(title: "nav_drive".localized, style: .default, handler: { [unowned self] (action) in
             
-            
             let options = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
+            
+            let placemark = MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: self.atmNode.lat, longitude: self.atmNode.lon), addressDictionary: nil)
+            let mapitem = MKMapItem(placemark: placemark)
+            
+            mapitem.openInMaps(launchOptions: options)
+            
         }))
         
-        alert.addAction(UIAlertAction(title: "open_in_map".localized, style: .default, handler: {  [unowned self]  (action) in
-            
-            let link = "http://maps.apple.com/?ll=\(self.atmNode.lat),\(self.atmNode.lon)"
-            
-            if let url = URL(string: link) {
-                
-                if #available(iOS 10, *) {
-                    UIApplication.shared.open(url, options: [:],
-                                              completionHandler: nil)
-                } else {
-                    UIApplication.shared.openURL(url)
-                }
-            }
-        }))
-        
-        alert.addAction(UIAlertAction(title: "copy_address".localized, style: .default, handler: { [unowned self] (action) in
-            
-            
-            
-        }))
         
         alert.addAction(UIAlertAction(title: "cancel".localized, style: .cancel, handler: nil))
         
@@ -74,6 +68,9 @@ class DrawerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        btnCancel.setTitle("cancel".localized, for: .normal)
+        btnNavigate.setTitle("navigate".localized, for: .normal)
+
         Observable.combineLatest(viewModel.selectedAtm(), viewModel.location()) {
             return ($0, $1)
             }
@@ -89,14 +86,14 @@ class DrawerViewController: UIViewController {
                     if formattedAddress.isNotEmpty {
                         self.address.text = self.addressFormatter.format(atmNode: atm)
                     } else {
-                        self.address.text = "Address not available :("
+                        self.address.text = "address_not_available".localized
                     }
                     
                     if let location = res.1 {
                         self.distance.text = self.distanceFormatter.formatDistance(locationOne: Location(lat: atm.lat, lng: atm.lon), locationTwo: location)
                         
                     } else {
-                        self.distance.text = "GPS is disabled"
+                        self.distance.text = "gps_disabled".localized
                     }
                 }
                 

@@ -1,0 +1,4 @@
+"CFBundleDisplayName" = "ATMs";
+"CFBundleName" = "ATMs";
+"NSLocationWhenInUseUsageDescription" = "I'll use location to display your position and atms nearby.";
+

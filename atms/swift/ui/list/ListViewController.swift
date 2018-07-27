@@ -24,10 +24,13 @@ class ListViewController: UIViewController {
     var location: Location?
     
     @IBOutlet weak var tableView: UITableView!
+ 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        empty.text = "empty".localized
+
         tableView.tableFooterView = UIView()
         
         tableView.delegate = self
@@ -90,7 +93,7 @@ extension ListViewController: UITableViewDataSource {
         if formattedAddress.isNotEmpty {
             cell.atmAddress.text = addressFormater.format(atmNode: item)
         } else {
-            cell.atmAddress.text = "Address not available :("
+            cell.atmAddress.text = "address_not_available".localized
         }
         
         if location == nil {

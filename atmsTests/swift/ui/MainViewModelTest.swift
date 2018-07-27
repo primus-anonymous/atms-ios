@@ -20,6 +20,8 @@ class MainViewModelTest: XCTestCase {
 
     var progressObserver: TestableObserver<Bool>!
 
+    var errorObserver: TestableObserver<String>!
+
     var atmsObserver: TestableObserver<[AtmNode]>!
 
     override func setUp() {
@@ -32,6 +34,7 @@ class MainViewModelTest: XCTestCase {
         searchVisibleObserver = scheduler.createObserver(Bool.self)
         zoomFurtherObserver = scheduler.createObserver(Bool.self)
         progressObserver = scheduler.createObserver(Bool.self)
+        errorObserver = scheduler.createObserver(String.self)
 
         viewModel = MainViewModel(atmsRepo: mockAtmsRepo, subscribe: ConcurrentMainScheduler.instance, observe: MainScheduler.instance)
         
@@ -239,14 +242,12 @@ class MainViewModelTest: XCTestCase {
     
     func testProgressSuccess() {
         
-        print("SSDSDS: testProgressSuccess")
-        
         stub(mockAtmsRepo) { mock in
             when(mock.atms(viewPort: any())).thenReturn(Single.just([]))
         }
                 
         _ = viewModel.progress().subscribe(progressObserver)
-       // _ = viewModel.atms().subscribe(atmsObserver)
+        _ = viewModel.atms().subscribe(atmsObserver)
 
         let progressValues = [
             next(0, false),
@@ -273,5 +274,41 @@ class MainViewModelTest: XCTestCase {
         ]
         
         XCTAssertEqual(progressValues, progressObserver.events)
+    }
+    
+    func testNetworkingError() {
+        
+        stub(mockAtmsRepo) { mock in
+            
+            let error = URLError(.notConnectedToInternet)
+            
+            when(mock.atms(viewPort: any())).thenReturn(Single.error(error))
+        }
+        
+        _ = viewModel.error().subscribe(errorObserver)
+        _ = viewModel.atms().subscribe(atmsObserver)
+        
+        let errorValues = [
+            next(0, "network_error".localized)
+        ]
+        
+        XCTAssertEqual(errorValues, errorObserver.events)
+    }
+    
+    func testGeneralError() {
+        
+        stub(mockAtmsRepo) { mock in
+            
+            when(mock.atms(viewPort: any())).thenReturn(Single.error(NSError()))
+        }
+        
+        _ = viewModel.error().subscribe(errorObserver)
+        _ = viewModel.atms().subscribe(atmsObserver)
+        
+        let errorValues = [
+            next(0, "general_error".localized)
+        ]
+        
+        XCTAssertEqual(errorValues, errorObserver.events)
     }
 }

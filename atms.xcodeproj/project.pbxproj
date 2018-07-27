@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		119D8E63210B14AF00DDD31F /* DistanceFormatterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119D8E62210B14AF00DDD31F /* DistanceFormatterTest.swift */; };
+		119D8E75210B3A9C00DDD31F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 119D8E74210B3A9C00DDD31F /* Main.storyboard */; };
+		119D8E78210B5D3100DDD31F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 119D8E76210B5D3100DDD31F /* Localizable.strings */; };
+		119D8E7C210B93DA00DDD31F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 119D8E7E210B93DA00DDD31F /* InfoPlist.strings */; };
 		9C46FB710ACFE5FD6CB28A83 /* Pods_atmsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF28D1A4191DC0B550910F08 /* Pods_atmsTests.framework */; };
 		B8E7F14C1E8E9609185C8D8D /* Pods_atms.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D64BFEF59AB91F971C88EE42 /* Pods_atms.framework */; };
 		BA33702020F9CBBE000C63C0 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BAA71CC620F9CA84005A8B7B /* Info.plist */; };
@@ -24,7 +28,6 @@
 		BA33703E20FA6086000C63C0 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA33703D20FA6086000C63C0 /* MainViewModel.swift */; };
 		BAA71CBB20F9CA83005A8B7B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA71CBA20F9CA83005A8B7B /* AppDelegate.swift */; };
 		BAA71CBD20F9CA83005A8B7B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA71CBC20F9CA83005A8B7B /* MainViewController.swift */; };
-		BAA71CC020F9CA83005A8B7B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAA71CBE20F9CA83005A8B7B /* Main.storyboard */; };
 		BAA71CC220F9CA84005A8B7B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAA71CC120F9CA84005A8B7B /* Assets.xcassets */; };
 		BAA71CC520F9CA84005A8B7B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAA71CC320F9CA84005A8B7B /* LaunchScreen.storyboard */; };
 		BAA71CDB20F9CA84005A8B7B /* atmsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA71CDA20F9CA84005A8B7B /* atmsUITests.swift */; };
@@ -63,6 +66,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		119D8E62210B14AF00DDD31F /* DistanceFormatterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceFormatterTest.swift; sourceTree = "<group>"; };
+		119D8E74210B3A9C00DDD31F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		119D8E77210B5D3100DDD31F /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		119D8E79210B5DB500DDD31F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		119D8E7D210B93DA00DDD31F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		119D8E7F210B93F700DDD31F /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2516DF4C8E38AED0BDA5B077 /* Pods-atmsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-atmsUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-atmsUITests/Pods-atmsUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		2F392FF47A7BDE6827869D9D /* Pods-atmsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-atmsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-atmsTests/Pods-atmsTests.release.xcconfig"; sourceTree = "<group>"; };
 		32853F4130835A4EE07E180D /* Pods-atms.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-atms.debug.xcconfig"; path = "Pods/Target Support Files/Pods-atms/Pods-atms.debug.xcconfig"; sourceTree = "<group>"; };
@@ -85,7 +94,6 @@
 		BAA71CB720F9CA83005A8B7B /* atms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = atms.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAA71CBA20F9CA83005A8B7B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BAA71CBC20F9CA83005A8B7B /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		BAA71CBF20F9CA83005A8B7B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BAA71CC120F9CA84005A8B7B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BAA71CC420F9CA84005A8B7B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BAA71CC620F9CA84005A8B7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -169,10 +177,12 @@
 		BA33701F20F9CB88000C63C0 /* res */ = {
 			isa = PBXGroup;
 			children = (
-				BAA71CBE20F9CA83005A8B7B /* Main.storyboard */,
+				119D8E76210B5D3100DDD31F /* Localizable.strings */,
+				119D8E74210B3A9C00DDD31F /* Main.storyboard */,
 				BAA71CC120F9CA84005A8B7B /* Assets.xcassets */,
 				BAA71CC320F9CA84005A8B7B /* LaunchScreen.storyboard */,
 				BAA71CC620F9CA84005A8B7B /* Info.plist */,
+				119D8E7E210B93DA00DDD31F /* InfoPlist.strings */,
 			);
 			path = res;
 			sourceTree = "<group>";
@@ -313,6 +323,7 @@
 			isa = PBXGroup;
 			children = (
 				BAEC28A02109166E00D36CDE /* AddressFormatterTest.swift */,
+				119D8E62210B14AF00DDD31F /* DistanceFormatterTest.swift */,
 			);
 			path = services;
 			sourceTree = "<group>";
@@ -420,8 +431,8 @@
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
 				Base,
+				ru,
 			);
 			mainGroup = BAA71CAE20F9CA82005A8B7B;
 			productRefGroup = BAA71CB820F9CA83005A8B7B /* Products */;
@@ -440,10 +451,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				119D8E78210B5D3100DDD31F /* Localizable.strings in Resources */,
+				119D8E7C210B93DA00DDD31F /* InfoPlist.strings in Resources */,
 				BA33702020F9CBBE000C63C0 /* Info.plist in Resources */,
+				119D8E75210B3A9C00DDD31F /* Main.storyboard in Resources */,
 				BAA71CC520F9CA84005A8B7B /* LaunchScreen.storyboard in Resources */,
 				BAA71CC220F9CA84005A8B7B /* Assets.xcassets in Resources */,
-				BAA71CC020F9CA83005A8B7B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -623,6 +636,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BAEC289F2104B2EF00D36CDE /* MainViewModelTest.swift in Sources */,
+				119D8E63210B14AF00DDD31F /* DistanceFormatterTest.swift in Sources */,
 				BAEC289A2104B1BA00D36CDE /* GeneratedMocks.swift in Sources */,
 				BAEC28A12109166E00D36CDE /* AddressFormatterTest.swift in Sources */,
 			);
@@ -652,12 +666,22 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		BAA71CBE20F9CA83005A8B7B /* Main.storyboard */ = {
+		119D8E76210B5D3100DDD31F /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				BAA71CBF20F9CA83005A8B7B /* Base */,
+				119D8E77210B5D3100DDD31F /* Base */,
+				119D8E79210B5DB500DDD31F /* ru */,
 			);
-			name = Main.storyboard;
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		119D8E7E210B93DA00DDD31F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				119D8E7D210B93DA00DDD31F /* ru */,
+				119D8E7F210B93F700DDD31F /* Base */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 		BAA71CC320F9CA84005A8B7B /* LaunchScreen.storyboard */ = {
@@ -675,6 +699,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -735,6 +760,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

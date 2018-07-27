@@ -1,0 +1,3 @@
+"CFBundleDisplayName" = "Банкоматы";
+"CFBundleName" = "Банкоматы";
+"NSLocationWhenInUseUsageDescription" = "Мне нужна локация, чтобы показать твою позицию и банкоматы рядом.";

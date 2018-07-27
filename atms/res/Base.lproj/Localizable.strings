@@ -1,0 +1,28 @@
+"zoom_further" = "Please zoom further in";
+"nav_walk" = "Walk There";
+"nav_drive" = "Drive There";
+"cancel" = "Cancel";
+"navigate" = "Navigate";
+"address_not_available" = "Address is not available";
+"gps_disabled" = "GPS is disabled";
+"empty" = "There is nothing here";
+"settings" = "Settings";
+"filter" = "Filter";
+
+"settings_header_data" = "Data";
+"settings_header_about_osm" = "About OSM";
+"settings_value_about_osm" = "Click here to know more";
+
+"settings_header_common" = "Common";
+"settings_header_rate_us" = "Rate Us";
+"settings_value_rate_us" = "Click here to rate the app";
+"settings_header_about_app" = "About";
+"map" = "Map";
+"list" = "List";
+"ok" = "OK";
+
+"network_error" = "There was a network error. Check your connection and try again.";
+"general_error" = "There was an error. Please try again.";
+"m" = "m";
+"km" = "km";
+"version" = "Version";

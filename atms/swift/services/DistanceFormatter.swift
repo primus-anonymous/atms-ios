@@ -11,9 +11,9 @@ class DistanceFormatter {
         let distance = atmLoc.distance(from: myLoc)
         
         if distance < 1000.0 {
-            return "\(Int(distance)) m"
+            return "\(Int(distance)) \("m".localized)"
         }
         
-        return "\(NSString(format: "%.2f", distance/1000.0)) km"
+        return "\(NSString(format: "%.2f", distance/1000.0)) \("km".localized)"
     }
 }

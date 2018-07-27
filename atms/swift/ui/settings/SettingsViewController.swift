@@ -5,28 +5,34 @@ class SettingsViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
     
-    let items = [
-        [
-            "header": "Data",
-            "items": [
-                SettingItem(type: .osm, title: "About OSM", subTitle: "Click to know more")
-            ]
-        ],
-        [
-            "header": "Common",
-            "items": [
-                SettingItem(type: .rate, title: "Rate us", subTitle: "Click to rate"),
-                SettingItem(type: .about, title: "About app", subTitle: "Version 1.0 (1)")
-            ]
-        ]
-    ]
+    let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
+    let build = Bundle.main.object(forInfoDictionaryKey: kCFBundleVersionKey as String) as! String
+    
+    var items : [[String: Any]]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "ATMs"
+        title = "settings".localized
         
         tableView.tableFooterView = UIView()
+        
+        items = [
+            [
+                "header": "settings_header_data".localized,
+                "items": [
+                    SettingItem(type: .osm, title: "settings_header_about_osm".localized, subTitle: "settings_value_about_osm".localized)
+                ]
+            ],
+            [
+                "header": "settings_header_common".localized,
+                "items": [
+                    SettingItem(type: .rate, title: "settings_header_rate_us".localized, subTitle: "settings_value_rate_us".localized),
+                    SettingItem(type: .about, title: "settings_header_about_app".localized, subTitle: "\("version".localized) \(version) (\(build))")
+                ]
+            ]
+        ]
+        
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -41,6 +47,29 @@ extension SettingsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
+        let item = items[indexPath.section]["items"] as! SettingItem
+        
+        switch item.type {
+        case .osm:
+            let urlStr = "https://www.openstreetmap.org/about"
+            if #available(iOS 10.0, *) {
+                UIApplication.shared.open(URL(string: urlStr)!, options: [:], completionHandler: nil)
+                
+            } else {
+                UIApplication.shared.openURL(URL(string: urlStr)!)
+            }
+        case .rate:
+            let urlStr = "itms://itunes.apple.com/us/app/apple-store/id375380948?mt=8"
+            if #available(iOS 10.0, *) {
+                UIApplication.shared.open(URL(string: urlStr)!, options: [:], completionHandler: nil)
+                
+            } else {
+                UIApplication.shared.openURL(URL(string: urlStr)!)
+            }
+            
+        default:
+            break
+        }
         
     }
     

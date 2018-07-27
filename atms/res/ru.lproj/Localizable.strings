@@ -1,0 +1,28 @@
+"zoom_further" = "Пожалуйста, ближе";
+"nav_walk" = "Идти туда";
+"nav_drive" = "Ехать туда";
+"cancel" = "Отмена";
+"navigate" = "Навигация";
+"address_not_available" = "Адрес недоступен";
+"gps_disabled" = "GPS заблокирован";
+"empty" = "Здесь ничего нет";
+"settings" = "Настройки";
+"filter" = "Фильтр";
+
+"settings_header_data" = "Данные";
+"settings_header_about_osm" = "О OSM";
+"settings_value_about_osm" = "Нажми, чтобы узнать больше";
+
+"settings_header_common" = "Общие";
+"settings_header_rate_us" = "Оцени нас";
+"settings_value_rate_us" = "Нажми, чтобы оценить приложение";
+"settings_header_about_app" = "О приложении";
+"map" = "Карта";
+"list" = "Список";
+"ok" = "ОК";
+
+"network_error" = "Ошибка соединения. Пожалуйста, проверь соединение и попробуй снова.";
+"general_error" = "Произошла ошибка. Пожалуйста, попбробуй снова.";
+"m" = "м";
+"km" = "км";
+"version" = "Версия";

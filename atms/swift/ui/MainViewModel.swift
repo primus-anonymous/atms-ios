@@ -30,6 +30,8 @@ class MainViewModel {
     
     private let locationPermissionSubject = BehaviorRelay(value: false)
     
+    private let errorSubject = PublishRelay<String>()
+
     private var cachedViewPort: ViewPort?
     
     private var repoCall: Observable<[AtmNode]> = Observable.just([])
@@ -88,6 +90,10 @@ class MainViewModel {
         }
     }
     
+    func error() -> Observable<String> {
+        return errorSubject.asObservable()
+    }
+    
     func locationPermissionObservable() -> Observable<Bool> {
         return locationPermissionSubject.asObservable()
     }
@@ -143,10 +149,6 @@ class MainViewModel {
     func atms() -> Observable<[AtmNode]> {
         
         let src = Observable.combineLatest(zoomSubject, viewPortSubject) { [unowned self] (zoom, viewport) -> Observable<[AtmNode]> in
-            
-            print("SSDSDS: atms")
-            print("SSDSDS: \(zoom)")
-            print("SSDSDS: \(viewport)")
 
             guard zoom >= 16 else {
                 self.cachedViewPort = nil
@@ -161,16 +163,14 @@ class MainViewModel {
                     .asObservable()
                     .subscribeOn(self.subscribe)
                     .observeOn(self.observe)
-                    .do(onNext: { res in
-                        self.progressSubject.accept(false)
-                        print("SSDSDS: Next")
-                    }, onError: { error in
+                    .do(onError: { [unowned self] error in
                         self.cachedViewPort = nil
-                        self.progressSubject.accept(false)
-                        print("SSDSDS: Error")
-                    }, onSubscribed: {
-                        self.progressSubject.accept(true)
-                        print("SSDSDS: Subscribed")
+                        
+                        if let err = error as? URLError, err.code == .notConnectedToInternet {
+                            self.errorSubject.accept("network_error".localized)
+                        } else {
+                            self.errorSubject.accept("general_error".localized)
+                        }
                     })
                     .catchErrorJustReturn([])
                     .share(replay: 1, scope: SubjectLifetimeScope.forever)
@@ -179,13 +179,16 @@ class MainViewModel {
             
             return self.repoCall
             
-            }.flatMapLatest { $0 }
-        
+            }.flatMapLatest {
+                $0.do(onNext: { res in
+                    self.progressSubject.accept(false)
+                }, onSubscribe: {
+                    self.progressSubject.accept(true)
+                })
+        }
         
         return Observable.combineLatest(src, searchQuerySubject) { (atms, search) -> [AtmNode] in
             
-            print("SSDSDS: Second Function")
-
             if search.isEmpty {
                 return atms
             }

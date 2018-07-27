@@ -212,6 +212,7 @@
                         <outlet property="mapView" destination="aav-hg-nzT" id="HmW-2p-tqQ"/>
                         <outlet property="progress" destination="AeQ-HD-68k" id="YnA-Hb-UL1"/>
                         <outlet property="zoomFurther" destination="Ta2-oX-FXb" id="56Z-Xl-dpq"/>
+                        <outlet property="zoomFurtherLabel" destination="2dG-3D-RUo" id="Rbj-3Z-WDB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QgM-A5-sMp" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -364,6 +365,8 @@
                     <connections>
                         <outlet property="address" destination="HPB-Sd-Gm8" id="O5K-Km-2rb"/>
                         <outlet property="atmTitle" destination="jSR-TZ-cJ4" id="Dfq-B8-Utb"/>
+                        <outlet property="btnCancel" destination="36f-aA-owC" id="6jh-XG-0hW"/>
+                        <outlet property="btnNavigate" destination="Ede-ZV-ZWe" id="TOD-9R-KTD"/>
                         <outlet property="distance" destination="Spu-9e-V5z" id="YPa-oI-9IQ"/>
                     </connections>
                 </viewController>

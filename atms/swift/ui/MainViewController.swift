@@ -17,13 +17,15 @@ class MainViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        viewControllers![0].title = "map".localized
+        viewControllers![1].title = "list".localized
+        viewControllers![2].title = "settings".localized
+
         delegate = self
-        
-        definesPresentationContext = true
         
         searchBar = UISearchBar(frame: CGRect(x: 0, y: 20, width: view.frame.width, height: 48))
         
-        searchBar.placeholder = "Filter"
+        searchBar.placeholder = "filter".localized
         
         searchBar.delegate = self
         searchBar.showsCancelButton = true
@@ -48,6 +50,16 @@ class MainViewController: UITabBarController {
                 case .settings:
                     self.selectedIndex = 2
                 }
+                
+            }.disposed(by: disposeBag)
+        
+        viewModel.error()
+            .bind { [unowned self] in
+                
+                let alertController = UIAlertController(title: nil, message:
+                    $0, preferredStyle: UIAlertControllerStyle.alert)
+                alertController.addAction(UIAlertAction(title: "ok".localized, style: UIAlertActionStyle.default,handler: nil))
+                self.present(alertController, animated: true, completion: nil)
                 
             }.disposed(by: disposeBag)
         
@@ -130,7 +142,7 @@ extension MainViewController : CLLocationManagerDelegate {
         } else {
             viewModel.locationPermission = false
             locationManager.stopUpdatingLocation()
-
+            
         }        
     }
     

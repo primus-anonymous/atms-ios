@@ -1,4 +1,4 @@
-// MARK: - Mocks generated from file: atms/swift/services/AtmsProtocol.swift at 2018-07-26 20:50:32 +0000
+// MARK: - Mocks generated from file: atms/swift/services/AtmsProtocol.swift at 2018-07-27 18:51:26 +0000
 
 
 import Cuckoo
