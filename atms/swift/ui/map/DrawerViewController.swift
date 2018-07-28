@@ -59,7 +59,7 @@ class DrawerViewController: UIViewController {
         
         alert.addAction(UIAlertAction(title: "cancel".localized, style: .cancel, handler: nil))
         
-        alert.popoverPresentationController?.sourceView = view
+        alert.popoverPresentationController?.sourceView = btnNavigate
         
         present(alert, animated: true, completion: nil)
         

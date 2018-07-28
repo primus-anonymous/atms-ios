@@ -78,7 +78,7 @@ class MainViewController: UITabBarController {
     
     func searchBarTopOffset() -> CGFloat {
         
-        if UIDevice.current.orientation == .landscapeLeft || UIDevice.current.orientation == .landscapeRight {
+        if UIDevice.current.userInterfaceIdiom == .phone && (UIDevice.current.orientation == .landscapeLeft || UIDevice.current.orientation == .landscapeRight) {
             return 0
         }
         
