@@ -69,7 +69,10 @@ class DrawerViewController: UIViewController {
         super.viewDidLoad()
         
         btnCancel.setTitle("cancel".localized, for: .normal)
+        btnCancel.setTitleColor(UIColor.purple, for: .normal)
+        
         btnNavigate.setTitle("navigate".localized, for: .normal)
+        btnNavigate.setTitleColor(UIColor.purple, for: .normal)
 
         Observable.combineLatest(viewModel.selectedAtm(), viewModel.location()) {
             return ($0, $1)

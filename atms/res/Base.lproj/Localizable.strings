@@ -7,7 +7,7 @@
 "gps_disabled" = "GPS is disabled";
 "empty" = "There is nothing here";
 "settings" = "Settings";
-"filter" = "Filter";
+"filter" = "Filter be name";
 
 "settings_header_data" = "Data";
 "settings_header_about_osm" = "About OSM";

@@ -24,8 +24,11 @@ class MapViewController: UIViewController {
         super.viewDidLoad()
         
         zoomFurtherLabel.text = "zoom_further".localized
-
+        
+        progress.color = UIColor.purple
+        
         mapView.delegate = self
+        mapView.tintColor = UIColor.purple
         mapView.layoutMargins = UIEdgeInsets(top: 64, left: 0, bottom: 0, right: 0)
         
         zoomFurther.layer.cornerRadius = 12
@@ -58,10 +61,36 @@ class MapViewController: UIViewController {
             }.disposed(by: disposeBag)
         
         viewModel.atms()
-            .map({ atms -> [MKAnnotation] in
+            .bind { [unowned self] pois in
                 
-                return atms.map({
-                    
+                var poiCopy = Set<AtmNode>(pois)
+                
+                let currentAnnotations = self.mapView.annotations
+                    .compactMap({ annotation -> [AtmAnnotation] in
+                        
+                        if let atmAnnotation = annotation as? AtmAnnotation {
+                            return [atmAnnotation]
+                        }
+                        
+                        if let cluster = annotation as? MKClusterAnnotation {
+                            
+                            return cluster.memberAnnotations.filter {
+                                $0 is AtmAnnotation
+                                } as! [AtmAnnotation]
+                        }
+                        
+                        return []
+                    }).joined()
+                
+                for atmAnnotation in currentAnnotations {
+                    if pois.contains(atmAnnotation.atmNode) {
+                        poiCopy.remove(atmAnnotation.atmNode)
+                    } else {
+                        self.mapView.removeAnnotation(atmAnnotation)
+                    }
+                }
+                
+                self.mapView.addAnnotations(poiCopy.map({
                     let poiLocation = CLLocationCoordinate2DMake($0.lat, $0.lon)
                     
                     let pin = AtmAnnotation(atmNode: $0)
@@ -69,17 +98,8 @@ class MapViewController: UIViewController {
                     pin.title = $0.tags.name
                     
                     return pin
-                })
+                }))
                 
-            })
-            .bind { [unowned self] annotations in
-                
-                self.mapView.removeAnnotations(self.mapView.annotations.filter {
-                    !($0 is MKUserLocation)
-                    }
-                )
-                
-                self.mapView.addAnnotations(annotations)
                 
             }.disposed(by: disposeBag)
         
@@ -132,9 +152,22 @@ extension MapViewController : MKMapViewDelegate {
             
         }
         
-        let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier, for: annotation)
-        annotationView.clusteringIdentifier = "identifier"
-        return annotationView
+        let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier, for: annotation)
+        
+        dequeuedView.clusteringIdentifier = "clusterid"
+        
+        if let markerView = dequeuedView as? MKMarkerAnnotationView {
+            markerView.markerTintColor = UIColor.accent
+        }
+        
+        return dequeuedView
+    }
+    
+    func mapView(_ mapView: MKMapView, clusterAnnotationForMemberAnnotations memberAnnotations: [MKAnnotation]) -> MKClusterAnnotation {
+        
+        let clusterAnnotation =  MKClusterAnnotation(memberAnnotations: memberAnnotations)
+        
+        return clusterAnnotation
     }
     
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {

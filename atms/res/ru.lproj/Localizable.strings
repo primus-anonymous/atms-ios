@@ -7,7 +7,7 @@
 "gps_disabled" = "GPS заблокирован";
 "empty" = "Здесь ничего нет";
 "settings" = "Настройки";
-"filter" = "Фильтр";
+"filter" = "Фильтр по названию";
 
 "settings_header_data" = "Данные";
 "settings_header_about_osm" = "О OSM";

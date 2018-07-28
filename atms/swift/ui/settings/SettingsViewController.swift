@@ -47,7 +47,7 @@ extension SettingsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        let item = items[indexPath.section]["items"] as! SettingItem
+        let item = (items[indexPath.section]["items"] as! [SettingItem])[indexPath.row]
         
         switch item.type {
         case .osm:

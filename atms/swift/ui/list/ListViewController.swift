@@ -30,6 +30,7 @@ class ListViewController: UIViewController {
         super.viewDidLoad()
         
         empty.text = "empty".localized
+        progress.color = UIColor.purple
 
         tableView.tableFooterView = UIView()
         

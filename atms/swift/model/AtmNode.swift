@@ -17,3 +17,9 @@ extension AtmNode: Equatable {
     }
 
 }
+
+extension AtmNode: Hashable {
+    var hashValue: Int {
+        return id
+    }
+}

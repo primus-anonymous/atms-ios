@@ -4,13 +4,15 @@ import RxCocoa
 
 class MainViewModel {
     
+    public static let minimumZoomLevel = 16
+    
     let atmsRepo: AtmsProtocol
     
     let subscribe: SchedulerType
     
     let observe: SchedulerType
     
-    private let zoomSubject = BehaviorRelay(value: 16)
+    private let zoomSubject = BehaviorRelay(value: MainViewModel.minimumZoomLevel)
     
     private let viewPortSubject = BehaviorRelay(value: ViewPort())
     
@@ -138,7 +140,7 @@ class MainViewModel {
     
     func zoomfurther() -> Observable<Bool> {
         return zoomSubject.map({ zoom -> Bool in
-            return zoom < 16
+            return zoom < MainViewModel.minimumZoomLevel
         }).asObservable()
     }
     
@@ -150,7 +152,7 @@ class MainViewModel {
         
         let src = Observable.combineLatest(zoomSubject, viewPortSubject) { [unowned self] (zoom, viewport) -> Observable<[AtmNode]> in
 
-            guard zoom >= 16 else {
+            guard zoom >= MainViewModel.minimumZoomLevel else {
                 self.cachedViewPort = nil
                 return Observable.just([])
             }

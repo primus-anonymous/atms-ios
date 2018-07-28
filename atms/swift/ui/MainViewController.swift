@@ -23,12 +23,14 @@ class MainViewController: UITabBarController {
 
         delegate = self
         
-        searchBar = UISearchBar(frame: CGRect(x: 0, y: 20, width: view.frame.width, height: 48))
+        searchBar = UISearchBar(frame: CGRect(x: 0, y: searchBarTopOffset(), width: view.frame.width, height: 48))
         
         searchBar.placeholder = "filter".localized
         
         searchBar.delegate = self
         searchBar.showsCancelButton = true
+        
+        searchBar.tintColor = UIColor.purple
         
         viewModel.searchVisible()
             .bind { [unowned self] in
@@ -68,12 +70,20 @@ class MainViewController: UITabBarController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        searchBar.frame = CGRect(x: 0, y: 20, width: view.frame.width, height: 48)
+        searchBar.frame = CGRect(x: 0, y: searchBarTopOffset(), width: view.frame.width, height: 48)
         
         searchBar.sizeToFit()
         
     }
     
+    func searchBarTopOffset() -> CGFloat {
+        
+        if UIDevice.current.orientation == .landscapeLeft || UIDevice.current.orientation == .landscapeRight {
+            return 0
+        }
+        
+        return 20
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

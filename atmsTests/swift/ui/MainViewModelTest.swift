@@ -101,7 +101,7 @@ class MainViewModelTest: XCTestCase {
             when(mock.atms(viewPort: any())).thenReturn(Single.just([node1, node2]))
         }
         
-        viewModel.zoom = 4
+        viewModel.zoom = MainViewModel.minimumZoomLevel - 1
         
         _ = viewModel.atms().subscribe(atmsObserver)
        
@@ -216,7 +216,7 @@ class MainViewModelTest: XCTestCase {
     
         _ = viewModel.zoomfurther().subscribe(zoomFurtherObserver)
         
-        viewModel.zoom = 4
+        viewModel.zoom = MainViewModel.minimumZoomLevel - 1
         
         let visibilityValues = [
             next(0, false),
@@ -230,7 +230,7 @@ class MainViewModelTest: XCTestCase {
 
         _ = viewModel.zoomfurther().subscribe(zoomFurtherObserver)
         
-        viewModel.zoom = 18
+        viewModel.zoom = MainViewModel.minimumZoomLevel + 1
         
         let visibilityValues = [
             next(0, false),
