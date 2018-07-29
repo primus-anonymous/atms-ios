@@ -31,6 +31,7 @@
 		BAA71CC220F9CA84005A8B7B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAA71CC120F9CA84005A8B7B /* Assets.xcassets */; };
 		BAA71CC520F9CA84005A8B7B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAA71CC320F9CA84005A8B7B /* LaunchScreen.storyboard */; };
 		BAA71CDB20F9CA84005A8B7B /* atmsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA71CDA20F9CA84005A8B7B /* atmsUITests.swift */; };
+		BACD6341210E592A008443A5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BACD6340210E592A008443A5 /* GoogleService-Info.plist */; };
 		BAEC288320FB2E0100D36CDE /* MapExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEC288220FB2E0100D36CDE /* MapExtensions.swift */; };
 		BAEC288520FE5ADF00D36CDE /* Di.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEC288420FE5ADE00D36CDE /* Di.swift */; };
 		BAEC288720FFE38700D36CDE /* AtmCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEC288620FFE38700D36CDE /* AtmCell.swift */; };
@@ -102,6 +103,7 @@
 		BAA71CD620F9CA84005A8B7B /* atmsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = atmsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAA71CDA20F9CA84005A8B7B /* atmsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = atmsUITests.swift; sourceTree = "<group>"; };
 		BAA71CDC20F9CA84005A8B7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BACD6340210E592A008443A5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BAEC288220FB2E0100D36CDE /* MapExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapExtensions.swift; sourceTree = "<group>"; };
 		BAEC288420FE5ADE00D36CDE /* Di.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Di.swift; sourceTree = "<group>"; };
 		BAEC288620FFE38700D36CDE /* AtmCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtmCell.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 		BA33701F20F9CB88000C63C0 /* res */ = {
 			isa = PBXGroup;
 			children = (
+				BACD6340210E592A008443A5 /* GoogleService-Info.plist */,
 				119D8E76210B5D3100DDD31F /* Localizable.strings */,
 				119D8E74210B3A9C00DDD31F /* Main.storyboard */,
 				BAA71CC120F9CA84005A8B7B /* Assets.xcassets */,
@@ -353,6 +356,7 @@
 				BAA71CB420F9CA82005A8B7B /* Frameworks */,
 				BAA71CB520F9CA82005A8B7B /* Resources */,
 				67648D539BB9B8AC1165CEC1 /* [CP] Embed Pods Frameworks */,
+				BACD633F210E556C008443A5 /* Crashlytics */,
 			);
 			buildRules = (
 			);
@@ -457,6 +461,7 @@
 				119D8E75210B3A9C00DDD31F /* Main.storyboard in Resources */,
 				BAA71CC520F9CA84005A8B7B /* LaunchScreen.storyboard in Resources */,
 				BAA71CC220F9CA84005A8B7B /* Assets.xcassets in Resources */,
+				BACD6341210E592A008443A5 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -521,25 +526,43 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-atms/Pods-atms-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/Pulley/Pulley.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Swinject/Swinject.framework",
 				"${BUILT_PRODUCTS_DIR}/SwinjectStoryboard/SwinjectStoryboard.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Pulley.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swinject.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwinjectStoryboard.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-atms/Pods-atms-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		BACD633F210E556C008443A5 /* Crashlytics */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 12;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Crashlytics;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\"\n";
 		};
 		BAEC28982104B0CE00D36CDE /* Cuckoo */ = {
 			isa = PBXShellScriptBuildPhase;

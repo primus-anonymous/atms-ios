@@ -10,6 +10,9 @@ target 'atms' do
   pod 'Swinject'
   pod 'SwinjectStoryboard'
   pod 'Pulley'
+  pod 'Firebase/Core'
+  pod 'Fabric', '~> 1.7.9'
+  pod 'Crashlytics', '~> 3.10.5'
 
   # Pods for atms
 
