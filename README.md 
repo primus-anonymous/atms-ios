@@ -1,5 +1,3 @@
-
-
 # Банкоматы
 Приложение для поиска банкоматов. Данные берутся из базы данных Open Street Map по Rest API. Содержит примеры использования Swift, Alomofire, Apple Maps, RxSwift, MVVM, Unit Testing, Swinject, Cuckoo.
 Ссылка на приложение в App Store https://itunes.apple.com/us/app/osm-atms/id1419199757
