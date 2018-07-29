@@ -59,7 +59,7 @@ extension SettingsViewController: UITableViewDelegate {
                 UIApplication.shared.openURL(URL(string: urlStr)!)
             }
         case .rate:
-            let urlStr = "itms://itunes.apple.com/us/app/apple-store/id375380948?mt=8"
+            let urlStr = "itms://itunes.apple.com/us/app/apple-store/1419199757?mt=8"
             if #available(iOS 10.0, *) {
                 UIApplication.shared.open(URL(string: urlStr)!, options: [:], completionHandler: nil)
                 
