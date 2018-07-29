@@ -10,7 +10,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UITabBar.appearance().tintColor = UIColor.purple
         
-        
         return true
     }
 

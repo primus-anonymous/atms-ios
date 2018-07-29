@@ -107,6 +107,11 @@ class MapViewController: UIViewController {
             
             guard atmNode != nil else {
                 self.mapView.layoutMargins = UIEdgeInsets(top: 64, left: 0, bottom: 0, right: 0)
+                
+                if let selectedAnnotation = self.mapView.selectedAnnotations.first {
+                    self.mapView.deselectAnnotation(selectedAnnotation, animated: true)
+                }
+                
                 return
             }
             
@@ -121,6 +126,7 @@ class MapViewController: UIViewController {
             }) {
                 self.mapView.layoutMargins = UIEdgeInsets(top: 64, left: 0, bottom: 256, right: 0)
                 self.mapView.showAnnotations([selectedAnnotation], animated: true)
+                self.mapView.selectAnnotation(selectedAnnotation, animated: true)
             }
             }.disposed(by: disposeBag)
         
@@ -217,7 +223,10 @@ extension MapViewController : MKMapViewDelegate {
         }
     }
     
-    
+    func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
+        viewModel.clearSelectedAtm()
+    }
+
 }
 
 
