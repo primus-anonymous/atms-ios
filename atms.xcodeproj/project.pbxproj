@@ -30,7 +30,6 @@
 		BAA71CBD20F9CA83005A8B7B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA71CBC20F9CA83005A8B7B /* MainViewController.swift */; };
 		BAA71CC220F9CA84005A8B7B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAA71CC120F9CA84005A8B7B /* Assets.xcassets */; };
 		BAA71CC520F9CA84005A8B7B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAA71CC320F9CA84005A8B7B /* LaunchScreen.storyboard */; };
-		BAA71CDB20F9CA84005A8B7B /* atmsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA71CDA20F9CA84005A8B7B /* atmsUITests.swift */; };
 		BACD6341210E592A008443A5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BACD6340210E592A008443A5 /* GoogleService-Info.plist */; };
 		BAEC288320FB2E0100D36CDE /* MapExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEC288220FB2E0100D36CDE /* MapExtensions.swift */; };
 		BAEC288520FE5ADF00D36CDE /* Di.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEC288420FE5ADE00D36CDE /* Di.swift */; };
@@ -46,18 +45,10 @@
 		BAEC289A2104B1BA00D36CDE /* GeneratedMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEC28992104B1BA00D36CDE /* GeneratedMocks.swift */; };
 		BAEC289F2104B2EF00D36CDE /* MainViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEC289E2104B2EF00D36CDE /* MainViewModelTest.swift */; };
 		BAEC28A12109166E00D36CDE /* AddressFormatterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEC28A02109166E00D36CDE /* AddressFormatterTest.swift */; };
-		EFAE1A16163BF2356D5D7143 /* Pods_atmsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98C7D5BF3E076CF85C96BE46 /* Pods_atmsUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		BAA71CCC20F9CA84005A8B7B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BAA71CAF20F9CA82005A8B7B /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = BAA71CB620F9CA82005A8B7B;
-			remoteInfo = atms;
-		};
-		BAA71CD720F9CA84005A8B7B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BAA71CAF20F9CA82005A8B7B /* Project object */;
 			proxyType = 1;
@@ -100,9 +91,6 @@
 		BAA71CC620F9CA84005A8B7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BAA71CCB20F9CA84005A8B7B /* atmsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = atmsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAA71CD120F9CA84005A8B7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BAA71CD620F9CA84005A8B7B /* atmsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = atmsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		BAA71CDA20F9CA84005A8B7B /* atmsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = atmsUITests.swift; sourceTree = "<group>"; };
-		BAA71CDC20F9CA84005A8B7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BACD6340210E592A008443A5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BAEC288220FB2E0100D36CDE /* MapExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapExtensions.swift; sourceTree = "<group>"; };
 		BAEC288420FE5ADE00D36CDE /* Di.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Di.swift; sourceTree = "<group>"; };
@@ -137,14 +125,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C46FB710ACFE5FD6CB28A83 /* Pods_atmsTests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BAA71CD320F9CA84005A8B7B /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				EFAE1A16163BF2356D5D7143 /* Pods_atmsUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,7 +240,6 @@
 			children = (
 				BAA71CB920F9CA83005A8B7B /* atms */,
 				BAA71CCE20F9CA84005A8B7B /* atmsTests */,
-				BAA71CD920F9CA84005A8B7B /* atmsUITests */,
 				BAA71CB820F9CA83005A8B7B /* Products */,
 				C63579D2101AE27B1B4D9E0E /* Pods */,
 				003FBE926E80177DEAE8F77F /* Frameworks */,
@@ -272,7 +251,6 @@
 			children = (
 				BAA71CB720F9CA83005A8B7B /* atms.app */,
 				BAA71CCB20F9CA84005A8B7B /* atmsTests.xctest */,
-				BAA71CD620F9CA84005A8B7B /* atmsUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -294,15 +272,6 @@
 				BAA71CD120F9CA84005A8B7B /* Info.plist */,
 			);
 			path = atmsTests;
-			sourceTree = "<group>";
-		};
-		BAA71CD920F9CA84005A8B7B /* atmsUITests */ = {
-			isa = PBXGroup;
-			children = (
-				BAA71CDA20F9CA84005A8B7B /* atmsUITests.swift */,
-				BAA71CDC20F9CA84005A8B7B /* Info.plist */,
-			);
-			path = atmsUITests;
 			sourceTree = "<group>";
 		};
 		BAEC289B2104B29400D36CDE /* swift */ = {
@@ -388,25 +357,6 @@
 			productReference = BAA71CCB20F9CA84005A8B7B /* atmsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		BAA71CD520F9CA84005A8B7B /* atmsUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = BAA71CE520F9CA84005A8B7B /* Build configuration list for PBXNativeTarget "atmsUITests" */;
-			buildPhases = (
-				64327473DAD92AF610D225D5 /* [CP] Check Pods Manifest.lock */,
-				BAA71CD220F9CA84005A8B7B /* Sources */,
-				BAA71CD320F9CA84005A8B7B /* Frameworks */,
-				BAA71CD420F9CA84005A8B7B /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				BAA71CD820F9CA84005A8B7B /* PBXTargetDependency */,
-			);
-			name = atmsUITests;
-			productName = atmsUITests;
-			productReference = BAA71CD620F9CA84005A8B7B /* atmsUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -421,10 +371,6 @@
 						CreatedOnToolsVersion = 9.4.1;
 					};
 					BAA71CCA20F9CA84005A8B7B = {
-						CreatedOnToolsVersion = 9.4.1;
-						TestTargetID = BAA71CB620F9CA82005A8B7B;
-					};
-					BAA71CD520F9CA84005A8B7B = {
 						CreatedOnToolsVersion = 9.4.1;
 						TestTargetID = BAA71CB620F9CA82005A8B7B;
 					};
@@ -445,7 +391,6 @@
 			targets = (
 				BAA71CB620F9CA82005A8B7B /* atms */,
 				BAA71CCA20F9CA84005A8B7B /* atmsTests */,
-				BAA71CD520F9CA84005A8B7B /* atmsUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -472,13 +417,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BAA71CD420F9CA84005A8B7B /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -494,24 +432,6 @@
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-atmsTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		64327473DAD92AF610D225D5 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-atmsUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -665,14 +585,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BAA71CD220F9CA84005A8B7B /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BAA71CDB20F9CA84005A8B7B /* atmsUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -680,11 +592,6 @@
 			isa = PBXTargetDependency;
 			target = BAA71CB620F9CA82005A8B7B /* atms */;
 			targetProxy = BAA71CCC20F9CA84005A8B7B /* PBXContainerItemProxy */;
-		};
-		BAA71CD820F9CA84005A8B7B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = BAA71CB620F9CA82005A8B7B /* atms */;
-			targetProxy = BAA71CD720F9CA84005A8B7B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -918,46 +825,6 @@
 			};
 			name = Release;
 		};
-		BAA71CE620F9CA84005A8B7B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2516DF4C8E38AED0BDA5B077 /* Pods-atmsUITests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = atmsUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.neocaptainnemo.atmsUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = atms;
-			};
-			name = Debug;
-		};
-		BAA71CE720F9CA84005A8B7B /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4EBEABA56AD4C867B59DE2D5 /* Pods-atmsUITests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = atmsUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.neocaptainnemo.atmsUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = atms;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -984,15 +851,6 @@
 			buildConfigurations = (
 				BAA71CE320F9CA84005A8B7B /* Debug */,
 				BAA71CE420F9CA84005A8B7B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		BAA71CE520F9CA84005A8B7B /* Build configuration list for PBXNativeTarget "atmsUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				BAA71CE620F9CA84005A8B7B /* Debug */,
-				BAA71CE720F9CA84005A8B7B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
