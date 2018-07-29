@@ -4,7 +4,8 @@ import RxCocoa
 
 class MainViewModel {
     
-    public static let minimumZoomLevel = 16
+    public static let minimumZoomLevel = 18
+    public static let targetZoomLevel = 16
     
     let atmsRepo: AtmsProtocol
     
@@ -33,7 +34,7 @@ class MainViewModel {
     private let locationPermissionSubject = BehaviorRelay(value: false)
     
     private let errorSubject = PublishRelay<String>()
-
+    
     private var cachedViewPort: ViewPort?
     
     private var repoCall: Observable<[AtmNode]> = Observable.just([])
@@ -130,8 +131,10 @@ class MainViewModel {
         return selectedAtmSubject.asObservable()
     }
     
-    func clearSelectedAtm() {
-        selectedAtmSubject.accept(nil)
+    func clearIfSelectedAtm() {
+        if selectedAtmSubject.value != nil {
+            selectedAtmSubject.accept(nil)
+        }
     }
     
     func progress() -> Observable<Bool> {
@@ -151,7 +154,7 @@ class MainViewModel {
     func atms() -> Observable<[AtmNode]> {
         
         let src = Observable.combineLatest(zoomSubject, viewPortSubject) { [unowned self] (zoom, viewport) -> Observable<[AtmNode]> in
-
+            
             guard zoom >= MainViewModel.minimumZoomLevel else {
                 self.cachedViewPort = nil
                 return Observable.just([])

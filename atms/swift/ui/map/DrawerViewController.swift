@@ -29,7 +29,7 @@ class DrawerViewController: UIViewController {
     @IBOutlet weak var btnCancel: UIButton!
     
     @IBAction func doneTapped(_ sender: Any) {
-        viewModel.clearSelectedAtm()
+        viewModel.clearIfSelectedAtm()
     }
     
     @IBAction func navigateTapped(_ sender: Any) {

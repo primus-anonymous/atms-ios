@@ -66,36 +66,26 @@ class MapViewController: UIViewController {
             }.disposed(by: disposeBag)
         
         viewModel.atms()
+            .distinctUntilChanged()
             .bind { [unowned self] pois in
                 
-                var poiCopy = Set<AtmNode>(pois)
+                 var poiCopy = Set<AtmNode>(pois)
+                                
+                let currentAnnotations = self.mapView.annotations.filter { $0 is AtmAnnotation } as! [AtmAnnotation]
                 
-                let currentAnnotations = self.mapView.annotations
-                    .compactMap({ annotation -> [AtmAnnotation] in
-                        
-                        if let atmAnnotation = annotation as? AtmAnnotation {
-                            return [atmAnnotation]
-                        }
-                        
-                        if let cluster = annotation as? MKClusterAnnotation {
-                            
-                            return cluster.memberAnnotations.filter {
-                                $0 is AtmAnnotation
-                                } as! [AtmAnnotation]
-                        }
-                        
-                        return []
-                    }).joined()
+                var toRemove: [AtmAnnotation] = []
                 
                 for atmAnnotation in currentAnnotations {
                     if pois.contains(atmAnnotation.atmNode) {
                         poiCopy.remove(atmAnnotation.atmNode)
                     } else {
-                        self.mapView.removeAnnotation(atmAnnotation)
+                        toRemove.append(atmAnnotation)
                     }
                 }
                 
-                self.mapView.addAnnotations(poiCopy.map({
+                self.mapView.removeAnnotations(toRemove)
+                
+                self.mapView.addAnnotations(pois.map({
                     let poiLocation = CLLocationCoordinate2DMake($0.lat, $0.lon)
                     
                     let pin = AtmAnnotation(atmNode: $0)
@@ -108,10 +98,10 @@ class MapViewController: UIViewController {
                 
             }.disposed(by: disposeBag)
         
-        viewModel.selectedAtm().bind { [unowned self] atmNode in
+        viewModel.selectedAtm()
+            .bind { [unowned self] atmNode in
             
             guard atmNode != nil else {
-                self.mapView.layoutMargins = UIEdgeInsets(top: MapViewController.topPadding, left: 0, bottom: 0, right: 0)
 
                 if let selectedAnnotation = self.mapView.selectedAnnotations.first {
                     self.mapView.deselectAnnotation(selectedAnnotation, animated: true)
@@ -163,23 +153,22 @@ extension MapViewController : MKMapViewDelegate {
             
         }
         
-        let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier, for: annotation)
+        let id = "pin"
         
-        dequeuedView.clusteringIdentifier = "clusterid"
+        var dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: id )
         
-        if let markerView = dequeuedView as? MKMarkerAnnotationView {
-            markerView.markerTintColor = UIColor.accent
+        if dequeuedView == nil {
+            dequeuedView = MKAnnotationView(annotation: annotation, reuseIdentifier: id)
         }
+        else {
+            dequeuedView?.annotation = annotation
+        }
+        
+        dequeuedView?.image = UIImage(named: "pin")
         
         return dequeuedView
     }
-    
-    func mapView(_ mapView: MKMapView, clusterAnnotationForMemberAnnotations memberAnnotations: [MKAnnotation]) -> MKClusterAnnotation {
-        
-        let clusterAnnotation =  MKClusterAnnotation(memberAnnotations: memberAnnotations)
-        
-        return clusterAnnotation
-    }
+
     
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         
@@ -207,11 +196,8 @@ extension MapViewController : MKMapViewDelegate {
         if let atmAnnotation = view.annotation as? AtmAnnotation {
             
             viewModel.select(atmNode: atmAnnotation.atmNode)
-        }
-        
-        if let clusterAnnotation = view.annotation as? MKClusterAnnotation {
             
-            mapView.showAnnotations(clusterAnnotation.memberAnnotations, animated: true)
+            view.image = UIImage(named: "pin_selected")
         }
         
     }
@@ -219,17 +205,25 @@ extension MapViewController : MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
         
         if (!locationSet) {
-            let region =  MKCoordinateRegion(center: mapView.userLocation.coordinate, span: MKCoordinateSpanMake(0.09, 0.09))
             
-            mapView.setRegion(region, animated: true)
-            
+            mapView.setCenterCoordinate(mapView.userLocation.coordinate, withZoomLevel: MainViewModel.targetZoomLevel, animated: true)
+                        
             locationSet = true
             
         }
     }
     
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
-        viewModel.clearSelectedAtm()
+        
+        guard !(view.annotation is MKUserLocation) else {
+            return
+        }
+        
+        view.image = UIImage(named: "pin")
+        
+        mapView.layoutMargins = UIEdgeInsets(top: MapViewController.topPadding, left: 0, bottom: 0, right: 0)
+
+        viewModel.clearIfSelectedAtm()
     }
 
 }
