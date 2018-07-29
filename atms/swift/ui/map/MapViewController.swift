@@ -6,6 +6,8 @@ import RxCocoa
 
 class MapViewController: UIViewController {
     
+    static let topPadding = CGFloat(64.0)
+    
     @IBOutlet weak var mapView: MKMapView!
     
     @IBOutlet weak var zoomFurther: UIView!
@@ -23,13 +25,16 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        zoomFurther.backgroundColor = UIColor.accent
+        
         zoomFurtherLabel.text = "zoom_further".localized
+        zoomFurtherLabel.textColor = UIColor.white
         
         progress.color = UIColor.purple
         
         mapView.delegate = self
         mapView.tintColor = UIColor.purple
-        mapView.layoutMargins = UIEdgeInsets(top: 64, left: 0, bottom: 0, right: 0)
+        mapView.layoutMargins = UIEdgeInsets(top: MapViewController.topPadding, left: 0, bottom: 0, right: 0)
         
         zoomFurther.layer.cornerRadius = 12
         zoomFurther.layer.shadowRadius = 1
@@ -106,8 +111,8 @@ class MapViewController: UIViewController {
         viewModel.selectedAtm().bind { [unowned self] atmNode in
             
             guard atmNode != nil else {
-                self.mapView.layoutMargins = UIEdgeInsets(top: 64, left: 0, bottom: 0, right: 0)
-                
+                self.mapView.layoutMargins = UIEdgeInsets(top: MapViewController.topPadding, left: 0, bottom: 0, right: 0)
+
                 if let selectedAnnotation = self.mapView.selectedAnnotations.first {
                     self.mapView.deselectAnnotation(selectedAnnotation, animated: true)
                 }
@@ -124,7 +129,7 @@ class MapViewController: UIViewController {
                 }
                 
             }) {
-                self.mapView.layoutMargins = UIEdgeInsets(top: 64, left: 0, bottom: 256, right: 0)
+                self.mapView.layoutMargins = UIEdgeInsets(top: MapViewController.topPadding, left: 0, bottom: DrawerViewController.drawerHeight, right: 0)
                 self.mapView.showAnnotations([selectedAnnotation], animated: true)
                 self.mapView.selectAnnotation(selectedAnnotation, animated: true)
             }

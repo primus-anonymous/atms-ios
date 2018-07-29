@@ -24,14 +24,14 @@ class ListViewController: UIViewController {
     var location: Location?
     
     @IBOutlet weak var tableView: UITableView!
- 
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         empty.text = "empty".localized
         progress.color = UIColor.purple
-
+        
         tableView.tableFooterView = UIView()
         
         tableView.delegate = self
@@ -87,7 +87,22 @@ extension ListViewController: UITableViewDataSource {
         
         let item = atms[indexPath.row]
         
-        cell.atmTitle.text = item.tags.name
+        let attributedNameString = NSMutableAttributedString(string: item.tags.name, attributes: [NSAttributedStringKey.font:UIFont.systemFont(ofSize: 20.0)])
+        
+        if viewModel.searchQuery.isEmpty {
+            cell.atmTitle.attributedText = attributedNameString
+        } else {
+            
+            let boldNameFontAttribute = [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 20.0)]
+            
+            if let boldNameRange = item.tags.name.lowercased().range(of: viewModel.searchQuery.trimmed.lowercased()) {
+                
+                attributedNameString.addAttributes(boldNameFontAttribute, range: NSRange(boldNameRange, in: item.tags.name.trimmed))
+            }
+            
+            cell.atmTitle.attributedText = attributedNameString
+            
+        }
         
         let formattedAddress = addressFormater.format(atmNode: item)
         

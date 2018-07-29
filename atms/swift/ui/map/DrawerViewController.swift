@@ -6,6 +6,8 @@ import MapKit
 
 class DrawerViewController: UIViewController {
     
+    static let drawerHeight = CGFloat(256.0)
+    
     var viewModel: MainViewModel!
     
     var addressFormatter: AddressFormatter!
@@ -111,6 +113,6 @@ extension DrawerViewController: PulleyDrawerViewControllerDelegate {
     }
     
     func partialRevealDrawerHeight(bottomSafeArea: CGFloat) -> CGFloat {
-        return 256.0
+        return DrawerViewController.drawerHeight
     }
 }

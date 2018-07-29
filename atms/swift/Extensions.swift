@@ -14,6 +14,11 @@ extension String {
         }
     }
     
+    var trimmed: String {
+        get {
+            return self.trimmingCharacters(in: .whitespaces)
+        }
+    }
 }
 
 
