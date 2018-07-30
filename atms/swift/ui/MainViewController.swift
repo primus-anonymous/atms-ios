@@ -82,7 +82,12 @@ class MainViewController: UITabBarController {
             return 0
         }
         
-        return 20
+        if #available(iOS 11.0, *) {
+            return view.safeAreaInsets.top
+        } else {
+            return 20
+        }
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
