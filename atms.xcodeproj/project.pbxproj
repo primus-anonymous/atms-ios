@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		11902209211304F50046BE3E /* FIlterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11902208211304F50046BE3E /* FIlterView.xib */; };
+		1190220B211305070046BE3E /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1190220A211305070046BE3E /* FilterView.swift */; };
 		119D8E63210B14AF00DDD31F /* DistanceFormatterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119D8E62210B14AF00DDD31F /* DistanceFormatterTest.swift */; };
 		119D8E75210B3A9C00DDD31F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 119D8E74210B3A9C00DDD31F /* Main.storyboard */; };
 		119D8E78210B5D3100DDD31F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 119D8E76210B5D3100DDD31F /* Localizable.strings */; };
@@ -58,6 +60,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		11902208211304F50046BE3E /* FIlterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FIlterView.xib; sourceTree = "<group>"; };
+		1190220A211305070046BE3E /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
 		119D8E62210B14AF00DDD31F /* DistanceFormatterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceFormatterTest.swift; sourceTree = "<group>"; };
 		119D8E74210B3A9C00DDD31F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		119D8E77210B5D3100DDD31F /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -184,12 +188,14 @@
 		BA33702420F9D401000C63C0 /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				1190220A211305070046BE3E /* FilterView.swift */,
 				BA33703420FA30A1000C63C0 /* map */,
 				BA33703320FA3094000C63C0 /* list */,
 				BA33703020F9D996000C63C0 /* settings */,
 				BAA71CBC20F9CA83005A8B7B /* MainViewController.swift */,
 				BA33703D20FA6086000C63C0 /* MainViewModel.swift */,
 				BAEC288A21030EA700D36CDE /* Tab.swift */,
+				11902208211304F50046BE3E /* FIlterView.xib */,
 			);
 			path = ui;
 			sourceTree = "<group>";
@@ -239,10 +245,10 @@
 			isa = PBXGroup;
 			children = (
 				BAA71CB920F9CA83005A8B7B /* atms */,
-				BAA71CCE20F9CA84005A8B7B /* atmsTests */,
 				BAA71CB820F9CA83005A8B7B /* Products */,
 				C63579D2101AE27B1B4D9E0E /* Pods */,
 				003FBE926E80177DEAE8F77F /* Frameworks */,
+				BAA71CCE20F9CA84005A8B7B /* atmsTests */,
 			);
 			sourceTree = "<group>";
 		};
@@ -400,6 +406,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11902209211304F50046BE3E /* FIlterView.xib in Resources */,
 				119D8E78210B5D3100DDD31F /* Localizable.strings in Resources */,
 				119D8E7C210B93DA00DDD31F /* InfoPlist.strings in Resources */,
 				BA33702020F9CBBE000C63C0 /* Info.plist in Resources */,
@@ -555,6 +562,7 @@
 				BAEC28972104901100D36CDE /* SettingsItem.swift in Sources */,
 				BAA71CBD20F9CA83005A8B7B /* MainViewController.swift in Sources */,
 				BA33703E20FA6086000C63C0 /* MainViewModel.swift in Sources */,
+				1190220B211305070046BE3E /* FilterView.swift in Sources */,
 				BA33703C20FA5F0A000C63C0 /* MapHostViewController.swift in Sources */,
 				BA33703A20FA5EE7000C63C0 /* DrawerViewController.swift in Sources */,
 				BAEC288520FE5ADF00D36CDE /* Di.swift in Sources */,

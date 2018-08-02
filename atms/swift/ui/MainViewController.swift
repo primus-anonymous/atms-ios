@@ -7,7 +7,7 @@ class MainViewController: UITabBarController {
     
     var viewModel: MainViewModel!
     
-    var searchBar: UISearchBar!
+    var filterView: FilterView!
     
     let disposeBag = DisposeBag()
     
@@ -23,21 +23,17 @@ class MainViewController: UITabBarController {
 
         delegate = self
         
-        searchBar = UISearchBar(frame: CGRect(x: 0, y: searchBarTopOffset(), width: view.frame.width, height: 48))
+        filterView = FilterView(frame: CGRect(x: 0, y: searchBarTopOffset(), width: view.frame.width, height: 64))
+        filterView.delegate = self
         
-        searchBar.placeholder = "filter".localized
-        
-        searchBar.delegate = self
-        searchBar.showsCancelButton = true
-        
-        searchBar.tintColor = UIColor.purple
+        filterView.tintColor = UIColor.purple
         
         viewModel.searchVisible()
             .bind { [unowned self] in
                 if $0 {
-                    self.view.addSubview(self.searchBar)
+                    self.view.addSubview(self.filterView)
                 } else {
-                    self.searchBar.removeFromSuperview()
+                    self.filterView.removeFromSuperview()
                 }
             }.disposed(by: disposeBag)
         
@@ -70,9 +66,9 @@ class MainViewController: UITabBarController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        searchBar.frame = CGRect(x: 0, y: searchBarTopOffset(), width: view.frame.width, height: 48)
+        filterView.frame = CGRect(x: 0, y: searchBarTopOffset(), width: view.frame.width, height: 64)
         
-        searchBar.sizeToFit()
+        filterView.sizeToFit()
         
     }
     
@@ -124,6 +120,17 @@ extension MainViewController: UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         
         view.endEditing(true)
+    }
+}
+
+extension MainViewController: FilterViewDelegate {
+    func filterValueChanged(view: FilterView, value: String) {
+        viewModel.searchQuery = value
+    }
+    
+    func doneTapped(view: FilterView) {
+        view.endEditing(true)
+
     }
 }
 

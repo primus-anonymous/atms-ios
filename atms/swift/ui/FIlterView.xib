@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FilterView" customModule="atms" customModuleProvider="target">
+            <connections>
+                <outlet property="btnDone" destination="6OP-jR-95L" id="fzL-Xp-G4y"/>
+                <outlet property="contentView" destination="iN0-l3-epB" id="nUU-vX-1DE"/>
+                <outlet property="filterQuery" destination="WNs-FJ-GiF" id="G5Q-2p-ean"/>
+                <outlet property="rootView" destination="WYH-cu-l3D" id="75G-7D-HWF"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="550" height="116"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WYH-cu-l3D">
+                    <rect key="frame" x="8" y="8" width="534" height="100"/>
+                    <subviews>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Filter " textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="WNs-FJ-GiF">
+                            <rect key="frame" x="8" y="8" width="448" height="84"/>
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" smartDashesType="no" smartInsertDeleteType="yes" smartQuotesType="no"/>
+                            <connections>
+                                <action selector="filterValueChanged:" destination="-1" eventType="editingChanged" id="X1P-tu-87S"/>
+                            </connections>
+                        </textField>
+                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6OP-jR-95L">
+                            <rect key="frame" x="472" y="35" width="46" height="30"/>
+                            <state key="normal" title="Button"/>
+                            <connections>
+                                <action selector="doneTapped:" destination="-1" eventType="touchUpInside" id="3Jo-Zi-Gbi"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="WNs-FJ-GiF" firstAttribute="leading" secondItem="WYH-cu-l3D" secondAttribute="leading" constant="8" id="9lU-6Y-Y5w"/>
+                        <constraint firstAttribute="bottom" secondItem="WNs-FJ-GiF" secondAttribute="bottom" constant="8" id="BRf-Pg-PKb"/>
+                        <constraint firstItem="6OP-jR-95L" firstAttribute="leading" secondItem="WNs-FJ-GiF" secondAttribute="trailing" constant="16" id="LDw-AP-z2a"/>
+                        <constraint firstItem="WNs-FJ-GiF" firstAttribute="top" secondItem="WYH-cu-l3D" secondAttribute="top" constant="8" id="gkg-Eg-6ny"/>
+                        <constraint firstAttribute="trailing" secondItem="6OP-jR-95L" secondAttribute="trailing" constant="16" id="n8u-tj-ZAI"/>
+                        <constraint firstItem="6OP-jR-95L" firstAttribute="centerY" secondItem="WYH-cu-l3D" secondAttribute="centerY" id="spA-Zy-Ky5"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="WYH-cu-l3D" secondAttribute="trailing" constant="8" id="Nzc-Ra-7bA"/>
+                <constraint firstItem="WYH-cu-l3D" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="eAB-xV-Ssq"/>
+                <constraint firstAttribute="bottom" secondItem="WYH-cu-l3D" secondAttribute="bottom" constant="8" id="kFe-TG-Jlu"/>
+                <constraint firstItem="WYH-cu-l3D" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="rVC-aV-gvc"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-127" y="-337"/>
+        </view>
+    </objects>
+</document>
